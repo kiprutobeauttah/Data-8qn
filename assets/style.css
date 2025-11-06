@@ -1,0 +1,67 @@
+/* Author: Beauttah | Meru University | Data-8qn
+   White/blue academic theme with optional dark mode */
+
+:root{
+  --bg:#f8fbff;
+  --card:#ffffff;
+  --text:#05204a;
+  --muted:#556779;
+  --accent:#1e6fdf;
+  --border:#e6eef8;
+  --shadow: 0 6px 18px rgba(11,37,69,0.06);
+}
+
+[data-theme="dark"]{
+  --bg:#071023;
+  --card:#0b1220;
+  --text:#e6eef8;
+  --muted:#94a3b8;
+  --accent:#5bb0ff;
+  --border:rgba(255,255,255,0.04);
+  --shadow: 0 6px 18px rgba(2,6,23,0.6);
+}
+
+*{box-sizing:border-box}
+body{font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Arial; margin:0; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; padding:18px;}
+.container{max-width:1200px;margin:0 auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:10px}
+.brand h1{margin:0;font-size:20px}
+.brand .sub{font-size:13px;color:var(--muted)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px;box-shadow:var(--shadow);margin-bottom:12px}
+.nav .link{margin-left:12px;color:var(--muted);text-decoration:none}
+.icon-btn{background:transparent;border:none;font-size:18px;cursor:pointer;color:var(--muted)}
+
+.layout{display:grid;grid-template-columns:1fr 320px;gap:16px;margin-top:14px}
+.left{min-height:420px}
+.right{position:sticky;top:22px;height:fit-content}
+
+.uploader{display:flex;flex-direction:column;gap:12px}
+.drop{padding:16px;border:2px dashed var(--border);border-radius:8px;text-align:center;color:var(--muted);cursor:pointer}
+.controls{display:flex;gap:8px;align-items:center}
+.search{flex:1;padding:10px;border:1px solid var(--border);border-radius:8px;background:transparent;color:var(--text)}
+.select{padding:9px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)}
+.btn{padding:9px 12px;border-radius:8px;border:none;background:var(--accent);color:white;cursor:pointer}
+.btn.secondary{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+
+.table-scroll{overflow:auto;max-height:420px;margin-top:10px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+th{position:relative;cursor:pointer}
+tr:hover td{background:rgba(30,111,223,0.03)}
+
+.footer{display:flex;justify-content:space-between;align-items:center;margin-top:12px;color:var(--muted);font-size:13px}
+.pager{display:flex;gap:8px;align-items:center}
+.chip{padding:6px 8px;border-radius:6px;background:transparent;border:1px solid var(--border);font-size:13px}
+.hidden{display:none}
+
+.summary{margin-bottom:12px}
+.summary .stat{display:flex;justify-content:space-between;align-items:center;padding:8px 0}
+.summary .num{font-weight:700;font-size:18px}
+.chart{margin-top:10px}
+.shortcuts ul{padding-left:18px;margin:6px 0}
+
+@media (max-width:920px){
+  .layout{grid-template-columns:1fr;gap:10px}
+  .right{position:relative;top:0}
+}

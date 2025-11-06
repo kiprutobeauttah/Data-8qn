@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Author: Beauttah | Meru University | Data-8qn Visualize -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Visualize — Data-8qn</title>
+  <meta name="description" content="Visualize data using Data-8qn. Charts and summaries by Beauttah (Meru University).">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="topbar card">
+    <div class="brand"><h1>Data-8qn</h1><div class="sub">Visualize</div></div>
+    <nav class="nav"><a href="index.html" class="link">Dashboard</a><a href="developers.html" class="link">Developers</a></nav>
+  </header>
+
+  <main class="container layout-visualize">
+    <section class="card">
+      <h2>Quick Charts</h2>
+      <p>Select a column to visualize distribution and top values.</p>
+
+      <div class="controls">
+        <input id="vizFileInput" type="file" accept=".csv,.xls,.xlsx,.ods"/>
+        <select id="vizColumn" class="select full"></select>
+        <button id="vizBtn" class="btn">Create Chart</button>
+      </div>
+
+      <div class="charts">
+        <canvas id="vizChart" height="300"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer card">
+    <div>Built with passion by Beauttah — Meru University</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+  <script src="assets/script.js"></script>
+</body>
+</html>

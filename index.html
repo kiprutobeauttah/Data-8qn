@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Author: Beauttah | Meru University | Data-8qn -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Data-8qn — Dashboard CSV & Excel Viewer | Beauttah</title>
+
+  <!-- ~30-line SEO-friendly description (friendly tech style) -->
+  <meta name="description" content="Free, open-source Data-8qn — a dashboard-style CSV & Excel viewer by Beauttah (Meru University). Upload or drag-and-drop CSV, XLS, and XLSX files and instantly explore tabular data with search, sort, pagination, and export. Visualize columns with Chart.js, view summary statistics, and switch between light academic and dark themes. Works fully client-side and offline as a PWA; privacy-preserving for students and researchers. Ideal for Meru University coursework, data literacy exercises, and rapid data checks. No server required, simple deployment on GitHub Pages, and MIT licensed for reuse. Built to be responsive, accessible, and easy to customize. Contact kiprutobeauttah on GitHub or email kiprutobeauttah@gmail.com to contribute or request features.">
+  <meta name="keywords" content="Data-8qn, CSV viewer, XLSX viewer, Beauttah, Meru University, Free, Open Source, Data visualization, Chart.js, PWA, offline" />
+  <meta name="author" content="Beauttah | Meru University" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Data-8qn — Dashboard CSV & Excel Viewer" />
+  <meta property="og:description" content="Data-8qn: free client-side CSV & Excel dashboard by Beauttah (Meru University). Explore, visualize and export data offline." />
+  <meta property="og:type" content="website" />
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="topbar card">
+    <div class="brand">
+      <h1>Data-8qn</h1>
+      <div class="sub">Dashboard CSV / Excel Data Viewer</div>
+    </div>
+    <nav class="nav">
+      <button id="themeToggle" class="icon-btn" title="Toggle theme">🌙</button>
+      <a href="visualize.html" class="link">Visualize</a>
+      <a href="developers.html" class="link">Developers</a>
+    </nav>
+  </header>
+
+  <main class="layout container">
+    <section class="left card">
+      <div class="uploader">
+        <input id="fileInput" type="file" accept=".csv,.xls,.xlsx,.ods" aria-label="Choose file" />
+        <div id="dropArea" class="drop">Drag & drop a CSV / XLSX file here, or click to choose file</div>
+        <div class="controls">
+          <input id="search" class="search" placeholder="Search any column..." />
+          <select id="pageSize" class="select">
+            <option value="10">10 rows/page</option>
+            <option value="25" selected>25 rows/page</option>
+            <option value="50">50 rows/page</option>
+            <option value="100">100 rows/page</option>
+          </select>
+          <button id="downloadBtn" class="btn">Download CSV</button>
+          <button id="clearBtn" class="btn secondary">Clear</button>
+        </div>
+      </div>
+
+      <div id="tableCard" class="card hidden">
+        <div class="table-scroll">
+          <table id="dataTable" role="table" aria-label="Parsed data table"></table>
+        </div>
+
+        <div class="footer">
+          <div id="rowInfo">0 rows</div>
+          <div class="pager">
+            <button id="prevPage" class="chip">Prev</button>
+            <div id="pageLabel" class="chip">Page 0 / 0</div>
+            <button id="nextPage" class="chip">Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="right card">
+      <div class="summary">
+        <h3>Summary</h3>
+        <div id="stats">
+          <div class="stat"><div class="num" id="totalRows">0</div><div class="label">Total rows</div></div>
+          <div class="stat"><div class="num" id="totalCols">0</div><div class="label">Columns</div></div>
+          <div class="stat"><div class="num" id="loadTime">0ms</div><div class="label">Load time</div></div>
+        </div>
+      </div>
+
+      <div class="chart card">
+        <h4>Chart: Selected column</h4>
+        <select id="chartColumn" class="select full"></select>
+        <canvas id="summaryChart" height="220"></canvas>
+      </div>
+
+      <div class="shortcuts card">
+        <h4>Shortcuts</h4>
+        <ul>
+          <li>Press <strong>/</strong> to focus search</li>
+          <li>Click column headers to sort</li>
+          <li>Use Visualize page for more charts</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer card">
+    <div>Built with passion by Beauttah — Meru University</div>
+    <div>Contact: <a href="mailto:kiprutobeauttah@gmail.com">kiprutobeauttah@gmail.com</a> • <a href="https://github.com/kiprutobeauttah" target="_blank">@kiprutobeauttah</a></div>
+  </footer>
+
+  <!-- libs -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+
+  <script src="assets/script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').catch(e=>console.log('SW failed',e));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "Data-8qn",
+  "short_name": "Data-8qn",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f8fbff",
+  "theme_color": "#1e6fdf",
+  "description": "Data-8qn \u2014 Dashboard CSV/XLS Data Viewer by Beauttah (Meru University)",
+  "icons": []
+}
